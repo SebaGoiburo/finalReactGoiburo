@@ -1,0 +1,29 @@
+.list{
+    ul {
+        list-style-type: none;
+        display: flex;
+    }
+    
+    li {
+        margin-right: 20px;
+    }
+    
+    li:last-child {
+        margin-right: 0;
+    }
+    
+    li a {
+        color: #fff; 
+        text-decoration: none; 
+        padding: 10px;
+        font: 1.3em sans-serif;
+        transition-delay: 0.3s;
+        transition-timing-function: ease-in-out;
+        transition-duration: 0.2s;
+    }
+    
+    li a:hover {
+        font-size: 1.5em;
+        color: #e6e6e6;
+    }
+}
