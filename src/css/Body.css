@@ -1,7 +1,14 @@
 body {
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
+        min-height: 60vh;
         font-family: Arial, sans-serif;
         color: #00AA95;
 }
+
+.main--container{
+        min-height: 80vh;
+        max-width: 100%;
+        vertical-align: middle;
+}
+

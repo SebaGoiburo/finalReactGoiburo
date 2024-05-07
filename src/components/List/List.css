@@ -13,7 +13,7 @@
     }
     
     li a {
-        color: #fff; 
+        color: #00AA95; 
         text-decoration: none; 
         padding: 10px;
         font: 1.3em sans-serif;
@@ -24,6 +24,9 @@
     
     li a:hover {
         font-size: 1.5em;
-        color: #e6e6e6;
+    }
+
+    .active-link{
+        font-weight: bold;
     }
 }

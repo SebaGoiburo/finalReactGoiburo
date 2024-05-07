@@ -1,0 +1,20 @@
+.contenedor--principal{
+    max-width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border: solid #00AA95 2px;
+    border-radius: 25px;
+    padding: 20px;
+    margin-top: 25px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 40px;
+}
+
+.container--lista--de-productos{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+

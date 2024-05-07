@@ -1,0 +1,22 @@
+.card-single-product{
+    height: 350px;
+    width: 350px;
+    border: solid azure;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.img-single-product{
+    
+}
+
+.img-single-product-single{
+    height: 150px;
+    max-width: auto;
+}

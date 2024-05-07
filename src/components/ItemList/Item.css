@@ -1,0 +1,49 @@
+.card{
+    height: auto;
+    width: 250px;
+    border: solid azure;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    justify-content: center;
+    margin: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover{
+    scale: 1.1;
+    transition-delay: 0.3s;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.2s;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.controlesCard{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.boton--agregar--producto{
+   height: auto;
+   margin: 2px;
+   font-size: 14px;
+}
+
+.imagen{
+    display: flex;
+    justify-content: center;
+}
+
+.imagen--producto{
+    height: 20vh;
+    max-width: 100%;
+}
+
+.descripcion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+}

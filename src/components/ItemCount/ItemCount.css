@@ -1,0 +1,28 @@
+.itemCount--container{
+    border: solid gray 1px;
+    border-radius: 10px;
+    height: auto;
+    width: 100px;
+    margin: 15px;
+    align-content: center;
+}
+.itemCount--counter--container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.itemCount--button{
+    width: auto;
+    margin: 3px;
+    justify-content: center;
+}
+
+span{
+    align-content: center;
+}
+button{
+    border:solid gray 1px;
+    border-radius: 5px;
+}

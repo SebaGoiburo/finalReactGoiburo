@@ -1,5 +1,6 @@
 nav {
-    background-color: #00AA95;
+    background-color: #ffffff;
+    border-bottom: solid #00AA95 4px;
     height: 4em;
     padding: 15px;
     display: flex;
