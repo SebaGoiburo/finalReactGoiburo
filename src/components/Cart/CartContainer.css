@@ -1,0 +1,59 @@
+.cartContainer{
+    width: 60vw;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.tituloTicket{
+    text-align: center;
+}
+.cartItem{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.imgCart{
+    height: 100px;
+    width: auto;
+}
+
+.modificarCantidad{
+    height: 30px;
+    width: 30px;
+    vertical-align: center;
+    border-radius: 50%;
+    background-color: #00AA95 ;
+    border: solid #00AA95 2px;
+    color: #ffffff;
+}
+
+.borrarTicket{
+    background-color: #ffffff ;
+    border: solid #00AA95 2px;
+    color: #00AA95;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.totalCarrito{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color:rgb(73, 73, 73)
+}
+
+.botonComprar{
+    background-color: #ffffff ;
+    border: solid #00AA95 2px;
+    color: #00AA95;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 15px;
+    margin: 10px;
+}

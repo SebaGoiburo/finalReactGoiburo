@@ -1,8 +1,13 @@
-# Trabajo Final del Curso React Js de CoderHouse
+# Fresco
+### Comprá frutas y verduras desde tu casa
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es un e-commerce creado con Vite JS + React para el curso React JS de CoderHouse.
 
-Currently, two official plugins are available:
+##### Pasos para levantar el proyecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Ejecutar npm i para instalar las dependencias
+2. Ejecutar npm run dev para levantar la aplicación en modo desarrollo.
+
+Autor
+
+- Sebastián Goiburo

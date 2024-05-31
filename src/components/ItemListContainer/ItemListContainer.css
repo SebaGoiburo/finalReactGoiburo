@@ -10,11 +10,13 @@
     margin-left: 30px;
     margin-right: 30px;
     margin-bottom: 40px;
+    text-decoration: none;
 }
 
 .container--lista--de-productos{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    text-decoration: none !important;
 }
 

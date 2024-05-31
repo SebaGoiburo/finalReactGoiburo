@@ -7,6 +7,7 @@
     justify-content: center;
     margin: 20px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
 }
 
 .card:hover{
@@ -17,6 +18,10 @@
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
+.card a{
+    text-decoration: none;
+    color: #00AA95;
+}
 .controlesCard{
     display: flex;
     flex-direction: row;
@@ -43,7 +48,20 @@
 .descripcion{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     padding: 0px;
+    margin: 0px;
+    text-decoration: none !important;
+}
+
+.descripcion h3{
+    text-decoration: none !important;
+}
+
+.descripcion h4{
+    text-decoration: none !important;
+}
+
+.descripcion h6{
+    color:rgba(0, 0, 0, 0.2)
 }
