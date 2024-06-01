@@ -1,7 +1,11 @@
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { getFirestore, getDoc, doc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import "./Product.css"
+import { useContext} from "react";
+import CartContext from "../../context/CartContext";
+import ItemCount from "../ItemCount/ItemCount";
+import useCount from "../../hooks/useCount";
 
 
 export default function Product(){
@@ -9,6 +13,8 @@ export default function Product(){
     const {productId} = useParams();
     const [product, setProduct] = useState({});
     const [cargando, setCargando] = useState(true);
+    const { addToCart } = useContext(CartContext);
+    const {count, incrementar, decrementar, reset} = useCount(0);
 
     useEffect(()=>{
         const db = getFirestore();
@@ -19,7 +25,7 @@ export default function Product(){
                 console.log("No hay productos en la base de datos");
                 setProduct(null); // Maneja el caso donde no existe el producto
             } else {
-                setProduct(snapshot.data());
+                setProduct({ id: snapshot.id, ...snapshot.data() });
             }
         })
         .catch((error) => {
@@ -30,6 +36,7 @@ export default function Product(){
 
 if (cargando) return <h1>Cargando...</h1>
 
+console.log(product)
 
 return(
     <div className="card-single-product">
@@ -43,6 +50,16 @@ return(
             <div className="price-single-product">
                 <h3>${product.precio}</h3>
                 <h4>Stock:{product.stock}</h4>
+            </div>
+            <div className="controlesCard">
+                <div className="contador">
+                    <ItemCount stock={product.stock} cantidad={count} incrementar={incrementar} decrementar={decrementar}/>
+                </div>
+                <div className="agregar--producto">
+                    <Link to="/cart">
+                        <button className="boton--agregar--producto" onClick={() => {addToCart(product, count); reset(); setProduct(product.stock-count)}} disabled={count === 0}>Agregar al carrito</button>
+                    </Link>
+                </div>
             </div>
         </div>
     </div>

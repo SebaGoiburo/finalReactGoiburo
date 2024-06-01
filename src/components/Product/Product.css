@@ -1,5 +1,5 @@
 .card-single-product{
-    height: 350px;
+    height: 60vh;
     width: 350px;
     border: solid azure;
     border-radius: 10px;
@@ -8,7 +8,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 20px;
+    margin: auto;
+    margin-top: 25px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 

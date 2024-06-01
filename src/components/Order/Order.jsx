@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { collection, getFirestore, addDoc } from "firebase/firestore";
+import { collection, getFirestore, addDoc, updateDoc, doc } from "firebase/firestore";
 import CartContext from "../../context/CartContext";
 import { useState } from "react"
 import "./order.css"
 
 export default function Order(){
 
-    const { cart, cartTotal, clearCart } = useContext(CartContext);
+    const { cart, cartTotal, clearCartPostVenta } = useContext(CartContext);
 
     const [buyer, setBuyer] = useState({
         name: "",
@@ -25,7 +25,7 @@ export default function Order(){
 
     const handleSubmit = (e)=>{
         e.preventDefault();
-        
+
         const orden = {
             buyer,
             fecha: new Date(), 
@@ -36,7 +36,18 @@ export default function Order(){
         const ordernesCollection = collection(db,"ordenes");
 
         addDoc(ordernesCollection, orden).then(({id})=>setIdOrdenGuardada(id));
-        clearCart();
+        
+        cart.map((item)=>{
+      
+            const updateItem= ()=> {
+              const db = getFirestore();
+              const itemDoc = doc(db, "productos", item.id);
+              updateDoc(itemDoc, { stock: (item.stock - item.quantity)});
+            }
+      
+            updateItem();
+        })
+        clearCartPostVenta();
     }
 
 return(

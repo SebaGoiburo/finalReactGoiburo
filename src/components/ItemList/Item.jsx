@@ -2,13 +2,15 @@ import ItemCount from "../ItemCount/ItemCount";
 import useCount from "../../hooks/useCount";
 import "./Item.css"
 import CartContext from "../../context/CartContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Item({ item }){
     const {count, incrementar, decrementar, reset} = useCount(0);
     const { addToCart } = useContext(CartContext);
+    const [ stock, setStock] = useState(item.stock);
 
+    
     return(
         <div className="card">
             <Link to={`/product/${item.id}`} key={item.id}>
@@ -22,7 +24,7 @@ export default function Item({ item }){
                     <h4 className="precio">
                         ${item.precio}
                     </h4>
-                    <h6>Stock: {item.stock}</h6>
+                    <h5>Stock: {stock}</h5>
                 </div>
             </Link>
             <div className="controlesCard">
@@ -30,7 +32,7 @@ export default function Item({ item }){
                     <ItemCount stock={item.stock} cantidad={count} incrementar={incrementar} decrementar={decrementar}/>
                 </div>
                 <div className="agregar--producto">
-                    <button className="boton--agregar--producto" onClick={() => {addToCart(item, count); reset()}} disabled={count === 0}>Agregar al carrito</button>
+                    <button className="boton--agregar--producto" onClick={() => {addToCart(item, count); reset(); setStock(item.stock-count)}} disabled={count === 0}>Agregar al carrito</button>
                 </div>
             </div>
         </div>

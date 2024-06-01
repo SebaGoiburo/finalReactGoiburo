@@ -1,13 +1,23 @@
 import { useEffect, useState } from "react";
 import CartContext from "./CartContext";
+import { doc, getFirestore, updateDoc } from "firebase/firestore";
 
 export default function CartProvider({ children}){
    const [cart, setCart] = useState(localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : []);
+   
+   
 
    const addToCart = (item, count) =>{
     setCart((prevCart) => {
         const itemIndex = prevCart.findIndex((cartItem) => cartItem.id === item.id);
         
+        const updateItem= ()=> {
+          const db = getFirestore();
+          const itemDoc = doc(db, "productos", item.id);
+          updateDoc(itemDoc, { stock: (item.stock - count)});
+        }
+        
+        updateItem();
         if (itemIndex !== -1) {
           // Si el producto ya está en el carrito, actualizamos la cantidad
           const updatedCart = [...prevCart];
@@ -23,9 +33,18 @@ export default function CartProvider({ children}){
       });
    }
 
-   const removeFromCart = (productId, quantity)=>{
+   const removeFromCart = (item, quantity)=>{
     setCart((prevCart) => {
-        const itemIndex = prevCart.findIndex((cartItem) => cartItem.id === productId);
+        const itemIndex = prevCart.findIndex((cartItem) => cartItem.id === item.id);
+       
+        const updateItem= ()=> {
+          const db = getFirestore();
+          const itemDoc = doc(db, "productos", item.id);
+          updateDoc(itemDoc, { stock: (item.stock + quantity)});
+        }
+        
+        updateItem();
+       
         if (itemIndex !== -1) {
           const updatedCart = [...prevCart];
           const updatedItem = { ...updatedCart[itemIndex] };
@@ -48,6 +67,21 @@ export default function CartProvider({ children}){
    }
 
    const clearCart = ()=>{
+    cart.map((item)=>{
+      
+      const updateItem= ()=> {
+        const db = getFirestore();
+        const itemDoc = doc(db, "productos", item.id);
+        updateDoc(itemDoc, { stock: (item.stock)});
+      }
+
+      updateItem();
+
+    })
+    setCart([]);
+   }
+
+   const clearCartPostVenta = ()=>{
     setCart([]);
    }
 
@@ -60,7 +94,7 @@ export default function CartProvider({ children}){
    },[cart])
 
    return(
-    <CartContext.Provider value={{cart, addToCart, removeFromCart, clearCart, cartTotal }}>
+    <CartContext.Provider value={{cart, addToCart, removeFromCart, clearCart, clearCartPostVenta, cartTotal }}>
     {children}
     </CartContext.Provider>
    );   

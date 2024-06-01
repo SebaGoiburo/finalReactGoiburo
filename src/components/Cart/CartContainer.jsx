@@ -30,7 +30,7 @@ export default function CartContainer(){
                                 <p>Cantidad: {item.quantity} {item.medida}</p>
                             </div>
                             <button className="modificarCantidad" onClick={() => addToCart(item, 1)}>+</button>
-                            <button className="modificarCantidad" onClick={() => removeFromCart(item.id, 1)}>-</button>
+                            <button className="modificarCantidad" onClick={() => removeFromCart(item, 1)}>-</button>
                             </div>
                             <hr />
                         </>
